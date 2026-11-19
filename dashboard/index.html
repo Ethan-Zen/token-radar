@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar: pre-token protocols ranked by implied launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"></span>
+    <div>
+      <h1>Token Radar</h1>
+      <p class="tagline">Protocols that record no token, ranked by what a token would be worth</p>
+    </div>
+  </div>
+  <dl class="meta">
+    <div><dt>Snapshot</dt><dd id="m-date">-</dd></div>
+    <div><dt>Watchlist floor</dt><dd id="m-floor">-</dd></div>
+    <div><dt>Model</dt><dd id="m-model">-</dd></div>
+  </dl>
+</header>
+
+<section class="kpis" id="kpis" aria-label="Snapshot at a glance"></section>
+
+<section class="method" id="method" aria-label="How the implied value is computed"></section>
+
+<nav class="toolbar" aria-label="Filters">
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-tab="board" role="tab" aria-selected="true">Board <span id="c-board">0</span></button>
+    <button class="tab" data-tab="live" role="tab" aria-selected="false">Live tokens <span id="c-live">0</span></button>
+    <button class="tab" data-tab="peers" role="tab" aria-selected="false">Comparables</button>
+  </div>
+  <div class="filters">
+    <label class="search"><span>Search</span><input id="q" type="search" placeholder="name, slug or chain" autocomplete="off"></label>
+    <label><span>Category</span><select id="f-cat"></select></label>
+    <label><span>Chain</span><select id="f-chain"></select></label>
+    <label><span>Min TVL</span><select id="f-tvl">
+      <option value="0">any</option>
+      <option value="50000000">$50M</option>
+      <option value="100000000">$100M</option>
+      <option value="500000000">$500M</option>
+      <option value="1000000000">$1B</option>
+    </select></label>
+    <label class="check"><input id="f-wl" type="checkbox"><span>Watchlist only</span></label>
+    <button id="reset" class="ghost">Reset</button>
+  </div>
+</nav>
+
+<main class="body">
+  <section id="focus-view" aria-label="Protocol page"></section>
+  <section class="tablewrap" aria-label="Ranked board">
+  <div id="board-view">
+    <table id="board-table">
+      <thead><tr>
+        <th data-k="name">Protocol</th>
+        <th data-k="category">Category</th>
+        <th data-k="tvl_usd" class="num">TVL</th>
+        <th data-k="change_7d" class="num">7d</th>
+        <th data-k="age_days" class="num">Age</th>
+        <th data-k="implied_value_usd" class="num">Implied FDV</th>
+        <th data-k="multiple" class="num">x TVL</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>No protocol matches these filters. <button id="clear2" class="ghost">Clear filters</button></p>
+    <p class="count" id="count"></p>
+  </div>
+  <div id="panel-view" hidden></div>
+  </section>
+
+  <aside class="detail" id="detail" aria-live="polite">
+    <p class="placeholder">Select a protocol to see its valuation and its farm plan.</p>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p id="provenance">-</p>
+  <p>The implied value is this board's own estimate from the snapshot's figures, not a forecast that a token is issued, and not investment advice.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

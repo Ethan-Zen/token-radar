@@ -1,0 +1,6 @@
+{
+  "name": "token-radar",
+  "private": true,
+  "type": "module",
+  "description": "Token Radar: pre-token protocols ranked by implied launch value (make.fun token-radar-01)"
+}
