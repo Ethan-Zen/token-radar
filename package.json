@@ -1,6 +1,9 @@
 {
   "name": "token-radar",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Token Radar: pre-token protocols ranked by implied launch value (make.fun token-radar-01)"
+  "description": "Prices every protocol that records no token from DefiLlama's sealed snapshot and ranks the board, with a static dashboard and a farm plan per protocol (make.fun token-radar-01).",
+  "engines": { "node": ">=22.18" },
+  "scripts": { "build": "node main.ts --input /input", "local": "MAKEFUN_OUTPUT_DIR=out node main.ts --input input/snapshot.json" }
 }
